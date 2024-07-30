@@ -30966,6 +30966,76 @@ a {
   border-radius: 5px;
 }
 
+.main-panel {
+  width: calc(100% - 240px);
+  margin-left: 20px;
+  padding: 20px;
+}
+.card-icon {
+  font-size: 40px;
+}
+.shortcut-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 10px;
+}
+.shortcut-card h5 {
+  margin: 0;
+}
+.shortcut-card p {
+  margin: 0;
+  font-size: 24px;
+}
+.content-wrapper {
+  background-color: #f4f5f7;
+  padding: 20px;
+  border-radius: 10px;
+  width: 1300px;
+}
+.chart-container {
+  height: 300px;
+}
+
+
+
+
+.sidebar {
+  width: 240px;
+  background-color: 135, 135, 135;
+  color: #fff;
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar .nav-link {
+  color: #fff;
+  font-size: 18px; /* Memperbesar ukuran teks */
+  padding: 15px 20px;
+}
+
+.sidebar .nav-link:hover {
+  background-color:#FFFFFF;
+}
+
+.sidebar .menu-title {
+  margin-left: 10px;
+}
+
+.sidebar .menu-arrow {
+  margin-left: auto;
+}
+
+.sidebar .mdi {
+  font-size: 24px; /* Memperbesar ukuran ikon */
+}
+
+.main-panel {
+  margin-left: 240px;
+  padding: 20px;
+}
+
 
 
 

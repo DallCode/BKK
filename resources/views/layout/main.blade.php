@@ -34,7 +34,7 @@
       
       <!-- partial -->
       <!-- partial:../../partials/_sidebar.html -->
-     @include('partial.sidebar')
+     @include('partial.sidebarAdmin')
       <!-- partial -->
       <div class="main-panel">  
 
