@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Karier Sebelas</title>
-  <!-- plugins:css -->  
+  <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/template/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/template/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/template/vendors/ti-icons/css/themify-icons.css') }}">
@@ -19,27 +19,34 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset ('assets/template/css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{asset ('assets/template/images/lowgo.png')}}" />   
+  <link rel="shortcut icon" href="{{asset ('assets/template/images/lowgo.png')}}" />
 </head>
 
 <body>
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
     @include('partial.navbar')
-    
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_settings-panel.html -->
-     
-      
+
+
       <!-- partial -->
       <!-- partial:../../partials/_sidebar.html -->
-     @include('partial.sidebarAdmin')
+
+@if (Auth::user()->role == 'Alumni')
+    @include('partial.sidebarAlumni')
+@elseif (Auth::user()->role == 'Perusahaan')
+    @include('partial.sidebarPerusahaan')
+@elseif (Auth::user()->role == 'Admin BKK')
+    @include('partial.sidebarAdmin')
+@endif
       <!-- partial -->
-      <div class="main-panel">  
+      <div class="main-panel">
 
            @yield('content')
-            
+
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
         <div>
@@ -51,7 +58,7 @@
             </footer>
         </div>
         <!-- partial -->
-      </div>  
+      </div>
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->

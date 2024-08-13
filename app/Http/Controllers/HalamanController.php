@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alumni;
+use App\Models\Perusahaan;
 use Illuminate\Support\Facades\Auth;
 
 class HalamanController extends Controller
 {
-    public function dashboard () {
+    public function dashboard() {
+
         if (Auth::user()) {
             $role = Auth::user()->role;
 
-            if ($role == 'Admin') {
-                return view('dashboardAdmin');
+            if ($role == 'Admin BKK') {
+                return redirect()->route('dashboardadmin');
             } else if ($role == 'Perusahaan') {
-                return view('dashboardPerusahaan');
+                return redirect()->route('dashboardperusahaan');
             } else if ($role == 'Alumni') {
-                return view('alumni');
+                $alumni = Alumni::all();
+                return redirect()->route('dashboardalumni');
             }
         }
         return redirect()->route('login');

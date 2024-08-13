@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class Alumni extends Model
 {
     use HasFactory;
-    protected $table = 'alumni';
-    protected $fillable = ['nama', 'jurusan', 'jenis_kelamin'. 'tahun_lulus', 'alamat', 'keahlian', 'foto', 'deskripsi'];
+    protected $table = 'data_alumni';
+    protected $fillable = ['nik','username','nama','jurusan','jenis_kelamin','tahun_lulus','alamat','keahlian','foto','deskripsi'];
 
     public function pengguna () : BelongsTo {
-        return $this->belongsTo(Pengguna::class);
+        return $this->belongsTo(Users::class);
     }
 
     public function lamaran () : HasMany {
@@ -22,10 +23,10 @@ class Alumni extends Model
     }
 
     public function pendidikan () : HasMany {
-        return $this->hasMany(Pendidikan::class);
+        return $this->hasMany(pendidikan::class);
     }
 
     public function kerja () : HasMany {
-        rrturn $this->hasMany(Kerja::class);
+        return $this->hasMany(kerja::class);
     }
 }

@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Aktivitas extends Model
 {
     use HasFactory;
-    protected $table = 'aktivitas';
-    protected $fillable = ['id_pengguna', 'keterangan'];
+    protected $table = 'aktivitas_users.';
+    protected $fillable =['id_aktivitas_users', 'username', 'keterangan', 'tanggal'];
 
     public function pengguna () : BelongsTo {
-        return $this->belongsTo(Pengguna::class);
+        return $this->belongsTo(Users::class);
     }
 }

@@ -14,8 +14,7 @@ class ImportController extends Controller
 
     public function import(Request $request)
     {
-        Excel::import(new AlumniImport, request()->file('file'));
-
+        Excel::import(new AlumniImport, $request->file('file'));        
         return redirect()->back()->with('success', 'File imported successfully.');
     }
 }

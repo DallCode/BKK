@@ -1,30 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\pengguna;
+// use App\Http\Controllers\Controller;
+// use App\Models\pengguna;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 USe Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    
+
     public function show () {
         if(!Auth::user()) {
-            return view('login');
+            return view('auth.login');
         }
         return redirect()->back();
     }
 
     public function login (Request $request) {
         $request->validate([
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
-        $user = Pengguna::where('email', $request->email)->fisrt();
+        $user = Users::where('username', $request->username)->first();
 
         if (!$user) {
             return redirect()->back()->with('error', 'Email tidak terdaftar pada aplikasi.');
@@ -38,11 +39,11 @@ class LoginController extends Controller
         $role = $user->role;
 
 
-        return redirect()->route('alumni', compact('role'));
+        return redirect()->route('dashboard', compact('role'));
     }
 
     public function logout () {
         Auth::logout();
-        return redirect()->route('alumni');
+        return redirect()->route('login');
     }
 }

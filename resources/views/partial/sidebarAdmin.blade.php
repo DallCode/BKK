@@ -19,40 +19,21 @@
                   <span class="menu-title" >Dashboard</span>
               </a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#data-perusahaan-menu" aria-expanded="false" aria-controls="data-perusahaan-menu">
-                  <i class="mdi mdi-briefcase"></i>
-                  <span class="menu-title">Data Perusahaan</span>
-                  <i class="menu-arrow mdi mdi-chevron-right"></i>
-              </a>
-              <div class="collapse" id="data-perusahaan-menu">
-                  <ul class="nav flex-column sub-menu">
-                      <li class="nav-item">
-                          <a class="nav-link" href="data-perusahaan.html">Data Perusahaan</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="data-lowongan.html">Data Lowongan</a>
-                      </li>
-                  </ul>
-              </div>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#data-alumni-menu" aria-expanded="false" aria-controls="data-alumni-menu">
-                  <i class="mdi mdi-school"></i>
-                  <span class="menu-title">Data Alumni</span>
-                  <i class="menu-arrow mdi mdi-chevron-right"></i>
-              </a>
-              <div class="collapse" id="data-alumni-menu">
-                  <ul class="nav flex-column sub-menu">
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('alumniadmin') }}">Lihat Data</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('importdata') }}">Import Data</a>
-                      </li>
-                  </ul>
-              </div>
-          </li>
+      <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('alumniadmin') }}">
+                    <i class="mdi mdi-school"></i>
+                    <span class="menu-title" >Data Alumni</span>
+                </a>
+            </li>
+      <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('akunperusahaan') }}">
+                        <i class="mdi mdi-briefcase"></i>
+                        <span class="menu-title" >Data Perusahaan</span>
+                    </a>
+                </li>
+
           <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#lowongan-menu" aria-expanded="false" aria-controls="lowongan-menu">
                   <i class="mdi mdi-briefcase-check"></i>
@@ -69,7 +50,7 @@
                       </li>
                   </ul>
               </div>
-              
+
           </li>
       </ul>
   </nav>

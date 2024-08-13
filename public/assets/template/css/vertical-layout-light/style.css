@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
-  Project:	Star Admin2 
+  Project:	Star Admin2
   Version:	1.2.1
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
@@ -28396,7 +28396,7 @@ div.tagsinput span.tag a {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 97px);
-  background: #F4F5F7;
+  background:#007bff;
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   padding: 0;
@@ -28435,7 +28435,7 @@ div.tagsinput span.tag a {
   align-items: center;
   white-space: nowrap;
   padding: 10px 35px 10px 35px;
-  color: #484848;
+  color: #FFFFFF;
   border-radius: 0px 20px 20px 0px;
   -webkit-transition-duration: 0.45s;
   -moz-transition-duration: 0.45s;
@@ -28750,7 +28750,7 @@ div.tagsinput span.tag a {
     top: 97px;
     bottom: 0;
     overflow: auto;
-    right: -220px;
+    right: -220px; 
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
