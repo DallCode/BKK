@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AkunPerusahaanController;
+use App\Http\Controllers\DatalokerController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +46,7 @@ Route::get('/akunperusahaan', [App\Http\Controllers\AkunPerusahaanController::cl
 Route::post('/akunperusahaan-proses', [App\Http\Controllers\AkunPerusahaanController::class, 'store'])
 ->name('akunperusahaan-proses');
 // Rute untuk update alumni
-Route::put('/alumni/{id}', [App\Http\Controllers\AlumniadminController::class, 'update'])->name('alumni.update');
+Route::put('/alumni/{nik}', [App\Http\Controllers\AlumniadminController::class, 'update'])->name('alumni.update');
 Route::resource('perusahaan', App\Http\Controllers\AkunPerusahaanController::class);
 
 Route::get('/dashboardalumni', [App\Http\Controllers\DashboardalumniController::class, 'index'])->name('dashboardalumni');
@@ -51,6 +55,28 @@ Route::get('/dashboardperusahaan', [App\Http\Controllers\DashboardperusahaanCont
 Route::get('/datalamaranperusahaan', [App\Http\Controllers\DataLamaranPerusahaanController::class, 'index'])->name('datalamaranperusahaan');
 Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil');
 Route::get('/lamaransaya', [App\Http\Controllers\LamaransayaController::class, 'index'])->name('lamaransaya');
+
+Route::controller(AkunPerusahaanController::class)->group(function () {
+    Route::get('akun-perusahaan', 'index');
+    Route::post('akun-perusahaan', 'store');
+    Route::delete('perusahaan/{perusahaan}', 'destroy')->name('perusahaan.destroy');
+    Route::put('perusahaan/{perusahaan}', 'update')->name('perusahaan.update');
+});
+
+// Rute untuk Loker
+Route::get('/lowongan/{id_lowongan_pekerjaan}', [DatalokerController::class, 'show'])->name('lowongan.show');
+Route::post('/lowongan/store', [DatalokerController::class, 'store'])->name('lowongan.store');
+Route::get('/lowongan', [DatalokerController::class, 'index'])->name('lowongan.index');
+Route::put('/lowongan/{id_lowongan_pekerjaan}', [DatalokerController::class, 'update'])->name('lowongan.update');
+
+
+
+
+
+
+
+
+
 
 
 

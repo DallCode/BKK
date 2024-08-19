@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('nik')->primary();
             $table->string('username');
             $table->string('nama');
-            $table->enum('jurusan', ['AKL','BR','DKV','MLOG','MP','RPL','TKJ']);
+            $table->enum('jurusan', ['AK','BR','DKV','MLOG','MP','RPL','TKJ']);
             $table->enum('jenis_kelamin', ['Laki Laki','Perempuan']);
             $table->year('tahun_lulus');
             $table->text('alamat')->nullable();

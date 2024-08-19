@@ -32,11 +32,11 @@
             <td>{{$p->alamat}}</td>
             <td>
                 <!-- Button trigger modal edit -->
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $p->id }}">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $p->id_data_perusahaan }}">
                     Edit
                 </button>
                 <!-- Button for delete -->
-                <form action="{{ route('perusahaan.destroy', $p->id) }}" method="POST" style="display:inline;">
+                <form action="{{ route('perusahaan.destroy', $p->id_data_perusahaan) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
@@ -45,16 +45,16 @@
         </tr>
 
         <!-- Modal for edit -->
-        <div class="modal fade" id="editModal-{{ $p->id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $p->id }}" aria-hidden="true">
+        <div class="modal fade" id="editModal-{{ $p->id_data_perusahaan }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $p->id_data_perusahaan }}" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel-{{ $p->id }}">Edit Perusahaan</h5>
+                        <h5 class="modal-title" id="editModalLabel-{{ $p->id_data_perusahaan }}">Edit Perusahaan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <!-- Form for edit -->
-                        <form action="{{ route('perusahaan.update', $p->id) }}" method="POST">
+                        <form action="{{ route('perusahaan.update', $p->id_data_perusahaan) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
@@ -116,8 +116,8 @@
                         <input class="form-control" id="alamat" name="alamat" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">email</label>
-                        <input class="form-control" id="email" name="email" required>
+                        <label for="username" class="form-label">email</label>
+                        <input class="form-control" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">password</label>

@@ -7,7 +7,7 @@ use App\Models\Alumni;
 
 class AlumniadminController extends Controller
 {
-    
+
     public function index()
     {
         $alumni = Alumni::all();
@@ -16,22 +16,22 @@ class AlumniadminController extends Controller
     }
 
      // Fungsi update untuk mengupdate data alumni
-     public function update(Request $request, $id)
+     public function update(Request $request, string $nik)
      {
-         $alumni = Alumni::findOrFail($id);
-         
+         $alumni = Alumni::findOrFail($nik);
+
          // Validasi data jika diperlukan
          $validatedData = $request->validate([
-             'nis' => 'required|string|max:255',
+            //  'nik' => 'required|string|max:255',
              'nama' => 'required|string|max:255',
              'jurusan' => 'required|string|max:255',
              'tahun_lulus' => 'required|integer',
              'deskripsi' => 'nullable|text',
              'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
          ]);
- 
+
          // Update data alumni
-         $alumni->nis = $request->nis;
+         $alumni->nik = $request->nik;
          $alumni->nama = $request->nama;
          $alumni->jurusan = $request->jurusan;
          $alumni->tahun_lulus = $request->tahun_lulus;
@@ -39,7 +39,7 @@ class AlumniadminController extends Controller
 
          $alumni->save();
         //  $alumni->additional_info = $request->additional_info;
- 
+
          // Jika ada file avatar yang diupload, update avatar
          if ($request->hasFile('avatar')) {
              $file = $request->file('avatar');
@@ -47,14 +47,15 @@ class AlumniadminController extends Controller
              $file->move(public_path('avatars'), $filename);
              $alumni->avatar_url = '/avatars/' . $filename;
          }
- 
-         
- 
+
+
+
          // Redirect ke halaman sebelumnya atau halaman yang diinginkan
          return redirect()->back()->with('success', 'Data alumni berhasil diupdate');
      }
 
-     
 
-     
+
+
+
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('id_alumni')->references('nik')->on('alumni')->onDelete('cascade');
+            $table->foreign('username')->references('nik')->on('alumni')->onDelete('cascade');
         });
     }
 

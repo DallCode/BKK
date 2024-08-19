@@ -10,7 +10,7 @@ class DashboardalumniController extends Controller
 {
     public function index()
     {
-        $alumniLogin = Alumni::where('id_user', Auth::id())->first();
+        $alumniLogin = Alumni::where('username', Auth::user()->username)->first();
         return view('dashboardAlumni', compact('alumniLogin'));
     }
 

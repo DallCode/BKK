@@ -10,6 +10,7 @@ class DataLamaranPerusahaanController extends Controller
 {
     public function index()
     {
-        $perusahaanLogin = Perusahaan::where('id_user', Auth::id())->first();
+
+        $perusahaanLogin = Perusahaan::where('username', Auth::user()->username)->first();
         return view('DataLamaranPerusahaan', compact('perusahaanLogin'));    }
 }

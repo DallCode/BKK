@@ -23,7 +23,6 @@
             @elseif (Auth::user()->role == 'Admin BKK')
             {{ Auth::user()->role }}
             @elseif (Auth::user()->role == 'Perusahaan')
-            {{-- {{ Auth::user()->role }} --}}
             {{ $perusahaanLogin->nama }}
             @endif
             </span></h1>

@@ -13,8 +13,7 @@
 <body>
     <div class="main-panel">
         <div class="content-wrapper">
-            <h2 class="font-weight-bold">Dashboard Admin</h2>
-            <h4 class="mb-4 text-center" style="color: #333;">Info Lowongan Pekerjaan</h2>
+            <h2 class="mb-4 text-center" style="color: #333;">Info Lowongan Pekerjaan</h2>
             <div class="row" id="job-listings">
                 <!-- Job listings will be dynamically inserted here -->
             </div>

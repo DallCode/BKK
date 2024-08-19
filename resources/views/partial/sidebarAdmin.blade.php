@@ -33,24 +33,7 @@
                         <span class="menu-title" >Data Perusahaan</span>
                     </a>
                 </li>
-
-          <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#lowongan-menu" aria-expanded="false" aria-controls="lowongan-menu">
-                  <i class="mdi mdi-briefcase-check"></i>
-                  <span class="menu-title">Lowongan Pekerjaan</span>
-                  <i class="menu-arrow mdi mdi-chevron-right"></i>
-              </a>
-              <div class="collapse" id="lowongan-menu">
-                  <ul class="nav flex-column sub-menu">
-                      <li class="nav-item">
-                          <a class="nav-link" href="Lowongan.html">Lowongan</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="internship.html">Internship</a>
-                      </li>
                   </ul>
-              </div>
-
           </li>
       </ul>
   </nav>

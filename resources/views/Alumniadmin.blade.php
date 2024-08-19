@@ -66,7 +66,7 @@
         @foreach ($alumni as $all)
             <tr>
                 <td class="py-1">
-                  {{$all->nis}}
+                  {{$all->nik}}
                 </td>
                 <td>
                   {{$all->nama}}
@@ -79,12 +79,12 @@
                 </td>
                 <td>
                   <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $all->id }}">Detail</button>
-                    <div class="modal fade" id="exampleModal-{{ $all->id }}" tabindex="-1" aria-labelledby="exampleModalLabel-{{ $all->id }}" aria-hidden="true">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $all->nik }}">Detail</button>
+                    <div class="modal fade" id="exampleModal-{{ $all->nik }}" tabindex="-1" aria-labelledby="exampleModalLabel-{{ $all->nik }}" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel-{{ $all->id }}">Detail Alumni</h5>
+                                <h5 class="modal-title" id="exampleModalLabel-{{ $all->nik}}">Detail Alumni</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -100,7 +100,7 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Informasi Alumni</h6>
                                                     <ul class="list-unstyled">
-                                                        <li><strong>NIK:</strong> {{ $all->nis }}</li>
+                                                        <li><strong>NIK:</strong> {{ $all->nik }}</li>
                                                         <li><strong>Nama:</strong> {{ $all->nama }}</li>
                                                         <li><strong>Jurusan:</strong> {{ $all->jurusan }}</li>
                                                         <li><strong>Tahun Lulus:</strong> {{ $all->tahun_lulus }}</li>
@@ -109,15 +109,15 @@
                                                 </div>
                                             </div>
 
-                                            <div class="accordion" id="accordionExample-{{ $all->id }}">
+                                            <div class="accordion" id="accordionExample-{{ $all->nik }}">
                                                 <!-- Accordion items can be added here -->
                                                 <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne-{{ $all->id }}">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $all->id }}" aria-expanded="true" aria-controls="collapseOne-{{ $all->id }}">
+                                                    <h2 class="accordion-header" id="headingOne-{{ $all->nik }}">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $all->nik }}" aria-expanded="true" aria-controls="collapseOne-{{ $all->nik }}">
                                                             Additional Information
                                                         </button>
                                                     </h2>
-                                                    <div id="collapseOne-{{ $all->id }}" class="accordion-collapse collapse show" aria-labelledby="headingOne-{{ $all->id }}" data-bs-parent="#accordionExample-{{ $all->id }}">
+                                                    <div id="collapseOne-{{ $all->nik}}" class="accordion-collapse collapse show" aria-labelledby="headingOne-{{ $all->nik }}" data-bs-parent="#accordionExample-{{ $all->nik }}">
                                                         <div class="accordion-body">
                                                             <!-- Add additional information here -->
                                                             {{ $all->deskripsi }}
@@ -133,16 +133,16 @@
                         </div>
                     </div>
                     </div>
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $all->id }}">Edit</button>
-                    <div class="modal fade" id="editModal-{{ $all->id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $all->id }}" aria-hidden="true">
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $all->nik }}">Edit</button>
+                    <div class="modal fade" id="editModal-{{ $all->nik }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $all->nik }}" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel-{{ $all->id }}">Edit Alumni</h5>
+                                <h5 class="modal-title" id="editModalLabel-{{ $all->nik }}">Edit Alumni</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                         <div class="modal-body">
-                            <form action="{{ route('alumni.update', $all->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('alumni.update', $all->nik) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -161,8 +161,8 @@
                                                 <div class="card-body">
                                                     <h6 class="card-title">Informasi Alumni</h6>
                                                     <div class="mb-3">
-                                                        <label for="nis" class="form-label">NIK</label>
-                                                        <input type="text" class="form-control" id="nis" name="nis" value="{{ $all->nis }}">
+                                                        <label for="nik" class="form-label">NIK</label>
+                                                        <input type="text" class="form-control" id="nik" name="nik" value="{{ $all->nik }}">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="nama" class="form-label">Nama</label>
@@ -179,14 +179,14 @@
                                                 </div>
                                             </div>
 
-                                            <div class="accordion" id="accordionExample-{{ $all->id }}">
+                                            <div class="accordion" id="accordionExample-{{ $all->nik }}">
                                                 <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne-{{ $all->id }}">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $all->id }}" aria-expanded="true" aria-controls="collapseOne-{{ $all->id }}">
+                                                    <h2 class="accordion-header" id="headingOne-{{ $all->nik }}">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $all->nik }}" aria-expanded="true" aria-controls="collapseOne-{{ $all->nik }}">
                                                             Additional Information
                                                         </button>
                                                     </h2>
-                                                    <div id="collapseOne-{{ $all->id }}" class="accordion-collapse collapse show" aria-labelledby="headingOne-{{ $all->id }}" data-bs-parent="#accordionExample-{{ $all->id }}">
+                                                    <div id="collapseOne-{{ $all->nik }}" class="accordion-collapse collapse show" aria-labelledby="headingOne-{{ $all->nik }}" data-bs-parent="#accordionExample-{{ $all->nik }}">
                                                         <div class="accordion-body">
                                                             <!-- Add additional information fields here -->
                                                             <div class="mb-3">

@@ -15,9 +15,10 @@ class Users extends Authenticatable
     protected $primaryKey = 'username';
     protected $keyType = 'string';
     public $incrementing = false;
+    public $timestamps = false;
     protected $fillable = [
+        'username',
         'name',
-        'email',
         'password',
         'role',
     ];
@@ -26,7 +27,8 @@ class Users extends Authenticatable
         return $this->hasMany(Aktivitas::class, 'username');
     }
 
-    public function perusahaan() : HasOne {
+    public function perusahaan() : HasOne
+    {
         return $this->hasOne(Perusahaan::class, 'username');
     }
 
