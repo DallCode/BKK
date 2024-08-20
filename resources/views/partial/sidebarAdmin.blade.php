@@ -29,13 +29,27 @@
       <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('akunperusahaan') }}">
-                        <i class="mdi mdi-briefcase"></i>
+                        <i class="mdi mdi-office-building"></i>
                         <span class="menu-title" >Data Perusahaan</span>
                     </a>
                 </li>
-                  </ul>
-          </li>
+      <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('akunpengguna') }}">
+                        <i class="mdi mdi-account"></i>
+                        <span class="menu-title" >Akun Pengguna</span>
+                    </a>
+                </li>
+      <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lokeradmin') }}">
+                        <i class="mdi mdi-briefcase"></i>
+                        <span class="menu-title" >Data Loker</span>
+                    </a>
+                </li>
       </ul>
+
+
   </nav>
 
   <!-- Bootstrap JS and dependencies -->

@@ -42,9 +42,18 @@ public function store(Request $request)
 
 public function show($id_lowongan_pekerjaan)
 {
-    $lowongan = Loker::findOrFail($id_lowongan_pekerjaan);
-    return view('lowongan.show', compact('lowongan'));
+    // Dapatkan ID perusahaan yang sedang login (misalnya dari sesi atau autentikasi)
+    $id_data_perusahaan = Auth()->user()->perusahaan->id_data_perusahaan; // Sesuaikan dengan cara Anda mendapatkan ID perusahaan
+
+    // Cari lowongan berdasarkan ID dan pastikan juga sesuai dengan ID perusahaan
+    $loker = Loker::where('id_lowongan_pekerjaan', $id_lowongan_pekerjaan)
+                    ->where('id_data_perusahaan', $id_data_perusahaan)
+                    ->firstOrFail();
+
+    // Jika ditemukan, tampilkan view dengan data lowongan
+    return view('lowongan.show', compact('loker'));
 }
+
 
 public function update(Request $request, $id_lowongan_pekerjaan)
 {

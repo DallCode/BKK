@@ -12,13 +12,20 @@ class AkunPerusahaanController extends Controller
     public function index()
     {
         $perusahaan = Perusahaan::all();
+        $perusahaan = Perusahaan::paginate(10);
         return view('akunPerusahaan', compact('perusahaan'));
     }
 
     public function update(Request $request, string $username)
 {
 
+
     $perusahaan = Perusahaan::find($username);
+
+    if ($request->has('status')) {
+        $perusahaan->update(['status' => $request->input('status')]);
+        return redirect()->back()->with(['toast' => 'true', 'status' => 'success', 'message' => 'Berhasil Mengubah Status']);
+    }
     // return $perusahaan;
     $perusahaan->nama = $request->input('nama');
     $perusahaan->bidang_usaha = $request->input('bidang_usaha');

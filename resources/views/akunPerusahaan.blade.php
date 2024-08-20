@@ -35,12 +35,6 @@
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $p->id_data_perusahaan }}">
                     Edit
                 </button>
-                <!-- Button for delete -->
-                <form action="{{ route('perusahaan.destroy', $p->id_data_perusahaan) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                </form>
             </td>
         </tr>
 
@@ -73,6 +67,13 @@
                                 <label for="alamat" class="form-label">Alamat</label>
                                 <textarea class="form-control" id="alamat" name="alamat">{{ $p->alamat }}</textarea>
                             </div>
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" id="status" name="status">
+                                    <option value="Aktif" {{ $p->status === 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                    <option value="Tidak Aktif" {{ $p->status === 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+                                </select>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -85,6 +86,11 @@
         @endforeach
     </tbody>
 </table>
+
+<div class="d-flex justify-content-left">
+    {{ $perusahaan->links('vendor.pagination.bootstrap-5') }}
+  </div>
+
 </div>
 
 <!-- Modal for add -->

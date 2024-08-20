@@ -49,6 +49,7 @@ class Perusahaan extends Model
         'no_telepon',
         'alamat',
         'logo',
+        'status'
     ];
 
     public static function boot()
@@ -60,7 +61,7 @@ class Perusahaan extends Model
         });
     }
 
-    private static function generateKodeUnik() 
+    private static function generateKodeUnik()
     {
         $prefix = 'P'; // Bisa disesuaikan sesuai kebutuhan
         $lastRecord = self::orderBy('id_data_perusahaan', 'desc')->first();

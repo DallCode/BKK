@@ -69,6 +69,13 @@ Route::post('/lowongan/store', [DatalokerController::class, 'store'])->name('low
 Route::get('/lowongan', [DatalokerController::class, 'index'])->name('lowongan.index');
 Route::put('/lowongan/{id_lowongan_pekerjaan}', [DatalokerController::class, 'update'])->name('lowongan.update');
 
+// Rute Untuk Loker Di Admin
+Route::get('/lokeradmin', [App\Http\Controllers\LokeradminController::class, 'index'])->name('lokeradmin');
+Route::put('/loker/{id_lowongan_pekerjaan}/update-status', [App\Http\Controllers\LokeradminController::class, 'updateStatus'])->name('update.status');
+
+// Route Untuk Akun Pengguna
+Route::get('/akunpengguna', [App\Http\Controllers\AkunpenggunaController::class, 'index'])->name('akunpengguna');
+
 
 
 

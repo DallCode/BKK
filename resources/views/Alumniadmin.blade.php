@@ -10,6 +10,8 @@
 
 @section('content')
 
+
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card-body">
         <h4 class="card-title">Data Alumni</h4>
@@ -38,9 +40,12 @@
     </div>
 </div>
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-success">{{ $message }}</div>
+@if ($message = session('alert'))
+    <div class="alert alert-{{ session('alert_type') }}">
+        {{ $message }}
+    </div>
 @endif
+
 <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

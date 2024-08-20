@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +20,8 @@
   <link rel="stylesheet" href="{{ asset('assets/template/css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset ('assets/template/images/lowgo.png')}}" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <body>
   <div class="container-scroller">
@@ -93,8 +91,16 @@
   <script src="{{ asset('assets/template/js/settings.js') }}"></script>
   <script src="{{ asset('assets/template/js/todolist.js') }}"></script>
   <!-- endinject -->
+
+  <script>
+    @if(session('error'))
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "{{ session('error') }}",
+      });
+    @endif
+  </script>
 </body>
 
 </html>
-
-

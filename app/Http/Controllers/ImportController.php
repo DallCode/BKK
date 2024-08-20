@@ -12,9 +12,34 @@ class ImportController extends Controller
         return view('Import');
     }
 
-    public function import(Request $request)
-    {
-        Excel::import(new AlumniImport, $request->file('file'));        
-        return redirect()->back()->with('success', 'File imported successfully.');
+    public function import(Request $request) {
+        try {
+            Excel::import(new AlumniImport, $request->file('file'));
+            return redirect()->back()->with([
+                'alert' => 'File berhasil diimpor.',
+                'alert_type' => 'success' // Tipe pesan: success, warning, danger
+            ]);
+        }
+        catch (\ValidationException $e) {
+            $errors = $e->errors();
+            $errorMessages = [];
+            foreach ($errors as $field => $messages) {
+                if (is_array($messages)) {
+                    $errorMessages[] = implode(', ', $messages);
+                }
+            }
+            return redirect()->back()->with([
+                'alert' => 'Kesalahan Validasi: ' . implode(', ', $errorMessages),
+                'alert_type' => 'danger'
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with([
+                'alert' => 'Terjadi kesalahan saat mengimpor file.',
+                'alert_type' => 'danger'
+            ]);
+        }
     }
+
+
+
 }
