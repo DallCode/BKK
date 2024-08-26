@@ -20,47 +20,28 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="font-weight-bold">Dashboard Admin</h2>
                 </div>
-    
+
                 <!-- Dashboard Cards -->
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="card text-center">
                             <div class="card-body">
                                 <i class="mdi mdi-account-multiple-outline card-icon text-primary mb-2"></i>
-                                <h5 class="card-title">Riwayat Akun Alumni</h5>
-                                <a href="#" class="btn btn-primary">Detail</a>
+                                <h5 class="card-title">Alumni Yang Bekerja</h5>
+                                <p></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="card text-center">
                             <div class="card-body">
                                 <i class="mdi mdi-briefcase-outline card-icon text-primary mb-2"></i>
-                                <h5 class="card-title">Riwayat Akun Perusahaan</h5>
-                                <a href="#" class="btn btn-primary">Detail</a>
+                                <h5 class="card-title">Alumni Yang Belum Bekerja</h5>
+                                <p></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <i class="mdi mdi-information-outline card-icon text-primary mb-2"></i>
-                                <h5 class="card-title">Riwayat Info Loker</h5>
-                                <a href="#" class="btn btn-primary">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <i class="mdi mdi-file-outline card-icon text-primary mb-2"></i>
-                                <h5 class="card-title">Riwayat Lamaran</h5>
-                                <a href="#" class="btn btn-primary">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
+
                 <!-- Graph Section -->
                 <div class="card mt-4">
                     <div class="card-body">
@@ -70,39 +51,40 @@
                         </div>
                     </div>
                 </div>
-    
-                <!-- Shortcut Data Section -->
+
                 <div class="row mt-4">
                     <div class="col-md-4">
-                        <div class="card shortcut-card text-white bg-success">
-                            <div>
-                                <h5>Alumni</h5>
-                                <p>100</p>
+                        <div class="card shortcut-card bg-success text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5>Alumni</h5>
+                                    <p>{{$jumlahAlumni}}</p>
+                                </div>
                             </div>
-                            <i class="mdi mdi-account-multiple"></i>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card shortcut-card text-white bg-warning">
-                            <div>
-                                <h5>Perusahaan</h5>
-                                <p>16</p>
+                        <div class="card shortcut-card bg-warning text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5>Perusahaan</h5>
+                                    <p>{{$jumlahPerusahaan}}</p>
+                                </div>
                             </div>
-                            <i class="mdi mdi-briefcase"></i>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card shortcut-card text-white bg-danger">
-                            <div>
-                                <h5>Semua User</h5>
-                                <p>113</p>
+                        <div class="card shortcut-card bg-danger text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5>Semua User</h5>
+                                    <p>{{$jumlahUsers}}</p>
+                                </div>
                             </div>
-                            <i class="mdi mdi-account"></i>
                         </div>
                     </div>
                 </div>
-            </div>
-    
+
             {{-- <!-- Footer -->
             <footer class="footer mt-4">
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -111,7 +93,7 @@
                 </div>
             </footer>
         </div> --}}
-    
+
         <!-- Bootstrap JS and dependencies -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

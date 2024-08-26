@@ -15,7 +15,7 @@ class DatalokerController extends Controller
 
         $loker = Loker::all(); // Mengambil semua data lowongan
         return view('dataLoker', compact('perusahaanLogin', 'loker'));
-        return view('dataLoker', compact('loker')); // Mengirimkan data ke view
+        // return view('dataLoker', compact('loker')); // Mengirimkan data ke view
 }
 
 public function store(Request $request)

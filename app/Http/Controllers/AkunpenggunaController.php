@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perusahaan;
 use App\Models\Users;
+use App\Models\Aktivitas;
 use Illuminate\Http\Request;
 
 class AkunpenggunaController extends Controller
@@ -12,6 +13,7 @@ class AkunpenggunaController extends Controller
     {
         $users = Users::all(); // Mengambil semua data lowongan
         $users = Users::paginate(10);
-        return view('Akunpengguna', compact('users')); // Mengirimkan data ke view
+        $aktivitas = Users::all();
+        return view('Akunpengguna', compact('users', 'aktivitas')); // Mengirimkan data ke view
     }
 }

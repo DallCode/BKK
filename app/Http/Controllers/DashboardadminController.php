@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
+use App\Models\Perusahaan;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class DashboardadminController extends Controller
 {
     public function index()
     {
-        return view('dashboardAdmin');
+        // Menghitung semua data alumni
+        $jumlahAlumni = Alumni::count();
+        $jumlahPerusahaan = Perusahaan::count();
+        $jumlahUsers = Users::where('role', '!=', 'Admin BKK')->count();
+        return view('dashboardAdmin', compact('jumlahAlumni', 'jumlahPerusahaan', 'jumlahUsers'));
     }
 }
+
+
+

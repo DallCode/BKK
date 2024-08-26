@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Karier Sebelas</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="{{ asset('assets/template/vendors/feather/feather.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/template/vendors/mdi/css/materialdesignicons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/template/vendors/ti-icons/css/themify-icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/template/vendors/typicons/typicons.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/template/vendors/simple-line-icons/css/simple-line-icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/template/vendors/css/vendor.bundle.base.css') }}">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{{ asset('assets/template/css/vertical-layout-light/style.css') }}">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="{{asset ('assets/template/images/lowgo.png')}}" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .auth-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .auth-form-btn {
+            border-radius: 50px;
+        }
+    </style>
 </head>
-
-<body>
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="content-wrapper d-flex align-items-center auth px-0">
-        <div class="row w-100 mx-0">
-          <div class="col-lg-4 mx-auto">
-            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="{{asset ('assets/template/images/logoo.png')}}" alt="logo" width="200px" height="auto" />
-              </div>
-              <h4>Selamat datang di Karier Sebelas</h4>
-              <h6 class="fw-light">Sign in to continue.</h6>
-              <form method="POST" action="{{ route('login') }}" class="pt-3">
+<body class="bg-light">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="auth-form bg-white shadow-sm p-4 rounded">
+            <h4 class="text-center mb-4">Sign In</h4>
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group">
                     <input id="username" name="username" type="text" class="form-control form-control-lg @error('username') is-invalid @enderror" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
@@ -68,39 +53,10 @@
                     @endif
                 </div>
             </form>
-
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="{{ asset('assets/template/vendors/js/vendor.bundle.base.js') }}"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="{{ asset('assets/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="{{ asset('assets/template/js/off-canvas.js') }}"></script>
-  <script src="{{ asset('assets/template/js/hoverable-collapse.js') }}"></script>
-  <script src="{{ asset('assets/template/js/template.js') }}"></script>
-  <script src="{{ asset('assets/template/js/settings.js') }}"></script>
-  <script src="{{ asset('assets/template/js/todolist.js') }}"></script>
-  <!-- endinject -->
-
-  <script>
-    @if(session('error'))
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: "{{ session('error') }}",
-      });
-    @endif
-  </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -23,6 +23,7 @@ Route::prefix('auth')->group(function () {
     Route::post('logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 });
 
+//Rute Admin BKK
 Route::get('/', [App\Http\Controllers\halamanController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::middleware(['auth', 'role:Admin BKK'])->group(function () {
     Route::get('/alumniadmin', [App\Http\Controllers\AlumniadminController::class, 'index'])->name('alumniadmin');
